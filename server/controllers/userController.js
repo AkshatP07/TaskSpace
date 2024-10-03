@@ -95,11 +95,12 @@ exports.loginUser = async (req, res) => {
 
         // Set the token in a cookie
         res.cookie('token', token, {
-            httpOnly: true, // Prevent JavaScript access to the cookie
-           secure: false, // Use secure flag in production
-            maxAge: 3600000,
-            sameSite: 'Lax' // Set the cookie to expire in 1 hour
+            httpOnly: true,  // Prevent JavaScript access to the cookie
+            secure: process.env.NODE_ENV === 'production',  // Use secure flag for HTTPS in production
+            maxAge: 3600000,  // Set cookie expiration to 1 hour
+            sameSite: 'Lax'  // Lax setting for CSRF protection
         });
+        
 
         console.log("Cookie set with token.");
 

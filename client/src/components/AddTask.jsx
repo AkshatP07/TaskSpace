@@ -35,7 +35,7 @@ const AddTask = ({ onClose }) => {
         }
         try {
             // Send task data to the backend
-            await axios.post('http://localhost:5000/api/tasks', { 
+            await axios.post('https://task-space-mocha.vercel.app/api/tasks', { 
                 title, 
                 description, 
                 status, 

@@ -13,13 +13,13 @@ const TaskDetails = () => {
     const [editingFeedbackId, setEditingFeedbackId] = useState(null);
     const [editingMessage, setEditingMessage] = useState('');
 
-    // Fetch task details and feedback
+    // Fetch task details and feedbackhttps://task-space-mocha.vercel.app/
     const fetchTaskDetails = async () => {
         try {
-            const taskResponse = await axios.get(`http://localhost:5000/api/tasks/${taskId}`);
+            const taskResponse = await axios.get(`https://task-space-mocha.vercel.app/api/tasks/${taskId}`);
             setTask(taskResponse.data);
 
-            const feedbackResponse = await axios.get(`http://localhost:5000/api/feedback/task/${taskId}`);
+            const feedbackResponse = await axios.get(`https://task-space-mocha.vercel.app/api/feedback/task/${taskId}`);
             setFeedbacks(feedbackResponse.data);
         } catch (error) {
             console.error('Error fetching task details:', error);
@@ -33,7 +33,7 @@ const TaskDetails = () => {
     // Handle sending new feedback
     const handleSendFeedback = async () => {
         try {
-            const response = await axios.post(`http://localhost:5000/api/feedback`, {
+            const response = await axios.post(`https://task-space-mocha.vercel.app/api/feedback`, {
                 message: newMessage,
                 taskId: task.id,
                 userId: user.id,
@@ -53,7 +53,7 @@ const TaskDetails = () => {
 
     const handleUpdateFeedback = async (feedbackId) => {
         try {
-            await axios.put(`http://localhost:5000/api/feedback/${feedbackId}`, {
+            await axios.put(`https://task-space-mocha.vercel.app/feedback/${feedbackId}`, {
                 message: editingMessage,
             });
             setEditingFeedbackId(null);
@@ -67,7 +67,7 @@ const TaskDetails = () => {
     // Handle deleting feedback
     const handleDeleteFeedback = async (feedbackId) => {
         try {
-            await axios.delete(`http://localhost:5000/api/feedback/${feedbackId}`);
+            await axios.delete(`https://task-space-mocha.vercel.app/api/feedback/${feedbackId}`);
             fetchTaskDetails(); // Refresh feedbacks after deletion
         } catch (error) {
             console.error('Error deleting feedback:', error);

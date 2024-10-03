@@ -10,7 +10,7 @@ const TaskCard = ({ task, fetchTasks }) => {
     // Handle task status update
     const handleStatusChange = async (newStatus) => {
         try {
-            await axios.put(`http://localhost:5000/api/tasks/${task.id}`, { status: newStatus });
+            await axios.put(`https://task-space-mocha.vercel.app/api/tasks/${task.id}`, { status: newStatus });
             setStatus(newStatus); // Update the status in UI
             fetchTasks(); // Refresh tasks after updating
         } catch (error) {
