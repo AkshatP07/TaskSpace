@@ -15,7 +15,7 @@ const AddTask = ({ onClose }) => {
     // Fetch all team members (to be displayed in the dropdown)
     const fetchUsers = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/users');
+            const response = await axios.get('https://task-space-mocha.vercel.app/api/users');
             setUsers(response.data); // Store the users in state
         } catch (error) {
             console.error('Error fetching users:', error);
