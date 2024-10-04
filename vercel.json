@@ -6,7 +6,10 @@
       "config": { "distDir": "dist" }
     }
   ],
+ {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
+}
+
 }
