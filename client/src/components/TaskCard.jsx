@@ -21,7 +21,7 @@ const TaskCard = ({ task, fetchTasks }) => {
     // Handle task deletion
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://localhost:5000/api/tasks/${task.id}`);
+            await axios.delete(`https://task-space-mocha.vercel.app/api/tasks/${task.id}`);
             fetchTasks(); // Refresh tasks after deletion
         } catch (error) {
             console.error('Error deleting task:', error);
